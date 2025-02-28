@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <h2>Каталог фильтров</h2>
+  <div class="containerInput" id="cardContainer">
+    <div class="input-group">
+      <input class="input_data" id="card__link" type="text" placeholder="Ссылка" required>
+      <input class="input_data" id="card__title" type="text" placeholder="Заголовок" maxlength="100" required>
+      <input class="input_data" id="card__description" type="text" placeholder="Описание" maxlength="100" required>
+
+      <div class="button__onclick">
+        <button onclick="addCard()" id="addButton">Добавить</button>
+        <button onclick="clearCards()">Очистить всё</button>
+        <button onclick="sortCards()">По алфовиту</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="container">
+    <button class="btn active" onclick="filterSelection('all')"> Все</button>
+    <button class="btn" onclick="filterSelection('background')"> Фоны</button>
+    <button class="btn" onclick="filterSelection('cat')"> Коты</button>
+    <button class="btn" onclick="filterSelection('mems')"> Мемы</button>
+  </div>
+
+  <div class="row" id="cardRow">
+    <div class="column background">
+      <div class="content">
+        <img src="./assets/icons/images/bk1.jpg" alt="background" style="width:100%">
+        <h4>Фон</h4>
+        <p>Типичный программит</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column background">
+      <div class="content">
+        <img src="./assets/icons/images/bk2.jpg" alt="background" style="width:100%">
+        <h4>Фон</h4>
+        <p>Вайб майнкрафта</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column mems">
+      <div class="content">
+        <img src="../assets/icons/images/mem4.jpg" alt="mems" style="width:100%">
+        <h4>Мем</h4>
+        <p>какие то приколисты</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column background">
+      <div class="content">
+        <img src="./assets/icons/images/bk3.jpg" alt="background" style="width:100%">
+        <h4>Фон</h4>
+        <p>Улыбается значит добрый</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column background">
+      <div class="content">
+        <img src="./assets/icons/images/bk4.jpg" alt="background" style="width:100%">
+        <h4>Фон</h4>
+        <p>Машина из фильма будущего</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column mems">
+      <div class="content">
+        <img src="../assets/icons/images/mem5.jpg" alt="mems" style="width:100%">
+        <h4>Мем</h4>
+        <p>мини чел из майнкрафта</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column mems">
+      <div class="content">
+        <img src="./assets/icons/images/mem1.jpg" alt="mems" style="width:100%">
+        <h4>Мем</h4>
+        <p>о боже мой</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column mems">
+      <div class="content">
+        <img src="./assets/icons/images/mem2.jpg" alt="mems" style="width:100%">
+        <h4>Мем</h4>
+        <p>мини акула</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column mems">
+      <div class="content">
+        <img src="./assets/icons/images/mem3.jpg" alt="mems" style="width:100%">
+        <h4>Мем</h4>
+        <p>чилловый</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column cat">
+      <div class="content">
+        <img src="./assets/icons/images/1.jpg" alt="cat" style="width:100%">
+        <h4>Кот</h4>
+        <p>слушает музыку</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column cat">
+      <div class="content">
+        <img src="./assets/icons/images/9.jpg" alt="cat" style="width:100%">
+        <h4>Кот</h4>
+        <p>посадили с деньгами</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column cat">
+      <div class="content">
+        <img src="../assets/icons/images/4.jpg" alt="cat" style="width:100%">
+        <h4>Кот</h4>
+        <p>типо умный кот</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column cat">
+      <div class="content">
+        <img src="../assets/icons/images/6.jpg" alt="cat" style="width:100%">
+        <h4>Кот</h4>
+        <p>девочка</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="column cat">
+      <div class="content">
+        <img src="../assets/icons/images/7.jpg" alt="cat" style="width:100%">
+        <h4>Кот</h4>
+        <p>клубника</p>
+        <div class="button__container">
+          <button class="button__like"></button>
+          <button class="button__delete"></button>
+        </div>
+      </div>
+    </div>
+
+ </div>
+</body>
+<script src="./scripts/script.js"></script>
+</html>
