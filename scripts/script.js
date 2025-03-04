@@ -112,21 +112,42 @@ function addCard() {
     alert("Введите в пустые поля");
     return;
   }
-
-  // Create new card element
   
   var card = document.createElement("div");
   card.className = "column"; 
-  card.innerHTML = `
-  <div class="content">
-    <img src="${url}" alt="${title}" style="width:100%">
-    <h4>${title}</h4>
-    <p>${description}</p>
-    <div class="button__container">
-      <button class="button__like"></button>
-      <button class="button__delete"></button>
-    </div>
-  </div>`;
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'content';
+
+  const imgElement = document.createElement('img');
+  imgElement.src = url;
+  imgElement.alt = title;
+  imgElement.style.width = '100%';
+
+  const titleElement = document.createElement('h4');
+  titleElement.textContent = title;
+
+  const descriptionElement = document.createElement('p');
+  descriptionElement.textContent = description;
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'button__container';
+
+  const likeButton = document.createElement('button');
+  likeButton.className = 'button__like';
+
+  const deleteButton = document.createElement('button');
+  deleteButton.className = 'button__delete';
+
+  buttonContainer.appendChild(likeButton);
+  buttonContainer.appendChild(deleteButton);
+
+  contentDiv.appendChild(imgElement);
+  contentDiv.appendChild(titleElement);
+  contentDiv.appendChild(descriptionElement);
+  contentDiv.appendChild(buttonContainer);
+
+  card.appendChild(contentDiv);
 
   card.querySelector('.button__like').addEventListener('click', function() {
     this.classList.toggle('like-active');
@@ -146,3 +167,4 @@ function addCard() {
   document.getElementById("card__description").value = "";
 
 }
+
